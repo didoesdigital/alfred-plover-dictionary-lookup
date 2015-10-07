@@ -20,10 +20,7 @@ Requires a [dictionary lookup tool](https://github.com/dimonster/plover-dictiona
 
 *  Dependency: Download and configure the [dictionary lookup tool](https://github.com/dimonster/plover-dictionary-lookup).
 
-1.  Download the Alfred workflow:
-
-    `git clone https://github.com/dimonster/alfred-plover-dictionary-lookup.git ~/alfred-plover-dictionary-lookup`
-
+1.  [Download the Alfred workflow](https://github.com/dimonster/alfred-plover-dictionary-lookup/archive/master.zip).
 2.  Import the Alfred workflow (by double-clicking on it).
 3.  Update the path in the Alfred workflow script to your `dictlook-ui.scpt` file.
 
