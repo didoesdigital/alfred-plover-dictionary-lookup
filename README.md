@@ -7,8 +7,8 @@ Derived from [this Automator workflow](http://stenoknight.com/plover/aviary/phpB
 
 # Features
 
-* Keyboard shortcut (⌃⌥⇧⌘P) to look up a selected word
-* Alfred keyword ("plover") to activate lookup (eg, "plover dictionary")
+* Keyboard shortcut (⌃⌥⇧⌘S) to look up a word from OS X clipboard contents
+* Alfred keyword ("steno") to activate lookup (eg, "steno dictionary")
 
 
 # Dependencies
@@ -22,19 +22,46 @@ Requires a [dictionary lookup tool](https://github.com/dimonster/plover-dictiona
 
 1.  [Download the Alfred workflow](https://github.com/dimonster/alfred-plover-dictionary-lookup/archive/master.zip).
 2.  Import the Alfred workflow (by double-clicking on it).
-3.  Update the path in the Alfred workflow script to your `dictlook-ui.scpt` file.
+3.  Update the path to the `dictlook-ui.scpt` file in the Alfred workflow script.
 
 
 # Usage
 
 There are a few options for using the Alfred workflow:
 
-- Select a word and use the keyboard shortcut (⌃⌥⇧⌘P) when Plover is switched off.
-- Launch Alfred and type `plover the-word-you-want-to-lookup` (the space is optional).
-- Create a brief for the keyboard shortcut to use on a selected word:
+1. Use the keyboard hotkey.
+2. Launch Alfred and use the keyword.
+3. Use a brief to look up the previous word next to your cursor.
+4. Use a brief to look up the selected word.
 
-    `"PHR*FR": "{#Shift_L(Alt_L(Super_L(Control_L(p))))}",`
 
-Note: I use the following brief to launch Alfred (normally ⌘ SPACE) without a subsequent space:
+## 1. Alfred Hotkey (`⌃⌥⇧⌘S`)
+
+- Copy (`⌘C`) the word you want to look up.
+- Use the keyboard shortcut (`⌃⌥⇧⌘S`).
+
+
+## 2. Alfred Keyword (`steno`)
+
+- Launch Alfred (⌘ SPACE) — you can configure this in Alfred:
 
     `"A*FRL": "{#Super_L(space)} {^}",`
+
+
+- Type `steno the-word-you-want-to-look-up` (the space is optional):
+
+    `"STOEUPB": "steno",`
+
+
+## 3. Brief to look up previous word
+
+- Use a brief to select the previous word next to your cursor, copy it, deselect the word by moving the cursor right, and finally look up the word:
+
+    `"STOEUFRL": "{#Alt_L(Shift_L(Left))} {#Super_L(c)} {#Right} {#Control_L(Alt_L(Shift_L(Super_L(s))))}",`
+
+
+## 4. Brief to look up a copied word from clipboard contents
+
+- Use a brief to copy the selected word, deselect it by moving the cursor right, and finally look up the word:
+
+    `"STOEUFRPBL": "{#Super_L(c)} {#Right} {#Control_L(Alt_L(Shift_L(Super_L(s))))}",`
